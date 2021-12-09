@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div style="color:white;background-image:url(/images/lh.jpg);background-repeat:no-repeat;background-size:cover">
+        <h1 style="text-align:center">SECRET HEART CONVENT HIGH SCHOOL MANGAD</h1>
+    </div>
+    <div style="width:100%;color:darkblue;font-weight:bold">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin-left:220px;width:100%">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav justify-content-center navbar-nav me-auto mb-2 mb-lg-2  ">
+                        <li class="nav-item" style="width:150px;color:darkblue">
+
+                            @Html.ActionLink("HOME", "AdminHome", "Admin", new { @class = "nav-link active" })
+                        </li>
+                        <li class="nav-item" style="width:150px">
+
+                            @Html.ActionLink("CLASSES", "AdminClass", "Admin", new { @class = "nav-link active" })
+                        </li>
+                        <li class="nav-item dropdown active" style="width:150px">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                STUDENT
+                            </a>
+                            <ul class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                                <li> @Html.ActionLink("ADD STUDENTS", "AdminStudent", "Admin", new { @class = "dropdown-item" })</li>
+                                <li> @Html.ActionLink("SHOW STUDENTS", "ShowStudents", "Admin", new { @class = "dropdown-item" })</li>
+
+                            </ul>
+
+                        </li>
+                        <li class="nav-item dropdown active" style="width:150px">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                FACULTY
+                            </a>
+                            <ul class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                                <li> @Html.ActionLink("ADD FACULTY", "AdminFaculty", "Admin", new { @class = "dropdown-item" })</li>
+                                <li> @Html.ActionLink("SHOW FACULTY", "ShowFaculty", "Admin", new { @class = "dropdown-item" })</li>
+
+                            </ul>
+
+                        </li>
+                        <li class="nav-item dropdown active" style="width:220px">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                FACULTY-MAPPING
+                            </a>
+                            <ul class="dropdown-menu active" aria-labelledby="navbarDropdown">
+                                <li> @Html.ActionLink("MAP FACULTY", "AdminMap", "Admin", new { @class = "dropdown-item" })</li>
+                                <li> @Html.ActionLink("SHOW MAPPING", "ShowMap", "Admin", new { @class = "dropdown-item" })</li>
+
+                            </ul>
+
+                        </li>
+                       
+                        <li class="nav-item">
+
+                            @Html.ActionLink("LOG OUT", "Login", "Admin", new { @class = "nav-link active" })
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

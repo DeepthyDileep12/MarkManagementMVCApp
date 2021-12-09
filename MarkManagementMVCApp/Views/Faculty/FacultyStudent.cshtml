@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MarkManagementMVCApp.Models.StudentPage>
+
+@{
+    ViewBag.Title = "FacultyStudent";
+    Layout = "~/Views/Faculty/FacultyMaster.cshtml";
+}
+@if (!Model.Any())
+{
+    <h1 style="color:red;text-align:center">@ViewBag.info</h1>
+}
+else
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                ROLL NUMBER
+            </th>
+            <th>
+                STUDENT NAME
+            </th>
+            @*<th>
+                GENDER
+            </th>*@
+            <th>
+                ADDRESS
+            </th>
+            <th>
+                LOCATION
+            </th>
+            <th>
+                PHONE NUMBER
+            </th>
+            <th>
+                EMAIL
+            </th>
+            <th>
+                PASSWORD
+            </th>
+            
+        </tr>
+        @*<tr>
+            <td colspan="8"> <h1 style="color:red;text-align:center">@ViewBag.info</h1></td>
+        </tr>*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rollno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StdName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+}

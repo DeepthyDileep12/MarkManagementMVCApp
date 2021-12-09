@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MarkManagementMVCApp.Models.Mark>
+@using MarkManagementMVCApp.Models;
+@{
+    ViewBag.Title = "FacultyShowMark";
+    Layout = "~/Views/Faculty/FacultyMaster.cshtml";
+}
+@if (!Model.Any())
+{
+    <h1 style="color:red;text-align:center">@ViewBag.info</h1>
+}
+else
+{
+<table class="table">
+    <tr>
+        
+        <th>
+            EXAM TYPE
+            @*@Html.DisplayNameFor(model => model.ExamType)*@
+        </th>
+        <th>
+            SCIENCE
+            @*@Html.DisplayNameFor(model => model.Science)*@
+        </th>
+        <th>
+            MATHS
+            @*@Html.DisplayNameFor(model => model.Maths)*@
+        </th>
+        <th>
+            COMPUTER
+            @*@Html.DisplayNameFor(model => model.Computer)*@
+        </th>
+        <th>
+            TOTAL
+            @*@Html.DisplayNameFor(model => model.Total)*@
+        </th>
+        <th>
+            AVERAGE
+            @*@Html.DisplayNameFor(model => model.Average)*@
+        </th>
+        <th>
+            GRADE
+            @*@Html.DisplayNameFor(model => model.Grade)*@
+        </th>
+        
+        <th>
+            STUDENT NAME
+            @*@Html.DisplayNameFor(model => model.StdName)*@
+        </th>
+
+    </tr>
+    @*<tr>
+        <td colspan="8"> <h1 style="color:red;text-align:center">@ViewBag.info</h1></td>
+    </tr>*@
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Science)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Computer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Average)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StdName)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+}

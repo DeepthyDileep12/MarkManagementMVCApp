@@ -1,0 +1,94 @@
+﻿@model MarkManagementMVCApp.Models.Mark
+@using MarkManagementMVCApp.Models;
+@{
+    ViewBag.Title = "FacultyMark";
+    Layout = "~/Views/Faculty/FacultyMaster.cshtml";
+}
+
+
+
+@using (Html.BeginForm("FacultyMark","Faculty",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="container-fluid">
+
+    <div class="col-md-7" style="margin-left:400px;color:darkblue">
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <br />
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <b>EXAM TYPE</b>
+                        @Html.DropDownListFor(model => model.ExamType, new SelectList(Enum.GetValues(typeof(Etype))),
+        "Select", new { @class = "form-control" })
+                        @*@Html.EditorFor(model => model.ExamType, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.ExamType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-4">
+                        <b>ENTER SCIENCE MARK</b>
+                        @Html.TextBoxFor(model => model.Science,  new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.Science, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>ENTER MATHS MARK</b>
+                        @*@Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(gen))),
+                            "Select", new { @class = "form-control" })*@
+                        @Html.TextBoxFor(model => model.Maths, new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.Maths, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        <b>ENTER COMPUTER MARK</b>
+                        @Html.TextBoxFor(model => model.Computer,  new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.Computer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>STUDENT NAME</b>
+                        @Html.DropDownListFor(M => M.RollNo, new SelectList(Model.StdDropdown, "Value", "Text"), "Select ", new { @class = "form-control" })
+
+                        @*@Html.EditorFor(model => model.RollNo, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.RollNo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        <b>CLASS</b>
+                        @Html.DropDownListFor(M => M.ClassID, new SelectList(Model.ClassDropdown, "Value", "Text"), "Select ", new { @class = "form-control" })
+
+                        @*@Html.EditorFor(model => model.ClassID, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.ClassID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="ADD STUDENT" class="btn btn-primary" />
+                        <p style="color:red">@ViewBag.info</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+}
+
+

@@ -1,0 +1,48 @@
+﻿@model MarkManagementMVCApp.Models.Mapping
+
+@{
+    ViewBag.Title = "AdminMap";
+    Layout = "~/Views/Admin/AdminMaster.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<div class="container-fluid">
+
+    <div class="col-md-12" style="color:darkblue;margin-left:300px;">
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <br />
+                <div class="row mb-12" style="margin-top:70px;color:darkblue;">
+                    <div class="col-md-3">
+                        <b>CLASS </b>
+                        @Html.DropDownListFor(M => M.ClassID, new SelectList(Model.FactDropdown, "Value", "Text"), "Select ", new { @class = "form-control" })
+
+                        @*@Html.EditorFor(model => model.ClassID, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        <b>FACULTY</b>
+                        @Html.DropDownListFor(M => M.Fid,  new SelectList(Model.ClassDropdown, "Value", "Text"), "Select ", new { @class = "form-control" })
+
+                        @*@Html.DropDownList("ClassDropdown", Model.ClassDropdown, "Select")*@
+                        @*@Html.EditorFor(model => model.Fid, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.FactName, "", new { @class = "text-danger" })
+                        <p style="color:red">@ViewBag.info</p>
+                    </div>
+                    <div class="col-sm-2 ">
+                        <input type="submit"  style="margin-top:20px"  value="MAP" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+                   

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MarkManagementMVCApp.Models.ClassPage>
+@using MarkManagementMVCApp.Models;
+
+@{
+    ViewBag.Title = "AdminClass";
+    Layout = "~/Views/Admin/AdminMaster.cshtml";
+}
+
+<br />
+<h3 style="margin-left: 600px;">
+    @using (Html.BeginForm("AdminClass", "Admin", FormMethod.Post))
+    {
+        
+        @Html.ActionLink("Add CLASS", "addclass", "Admin", new { @class = "btn btn-info" })
+    }
+
+</h3>
+<br />
+<table class="table table-bordered table-hover"  style="width:60%;margin-left:270px;">
+    <tr>
+        <th>
+            CLASS ID
+        </th>
+        <th>
+            CLASS NAME
+        </th>
+        <th>ACTIONS</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "AdminEdit", new{id=item.ClassID }, new { @class = "btn btn-info" }) 
+
+                @Html.ActionLink("Delete", "delete", new { id=item.ClassID}, new { @class = "btn btn-info"  })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MarkManagementMVCApp.Models.FacultyPage>
+
+@{
+    ViewBag.Title = "FacultyHome";
+    Layout = "~/Views/Faculty/FacultyMaster.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            FACULTY ID
+        </th>
+        <th>
+            FACULTY NAME
+        </th>
+        <th>
+            GENDER
+        </th>
+        <th>
+            ADDRESS
+        </th>
+        <th>
+            LOCATION
+        </th>
+        <th>
+            PHONE NUMBER
+        </th>
+        <th>
+            EMAIL
+        </th>
+        <th>
+            PASSWORD
+        </th>
+        <th>
+            CLASS NAME
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Fid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FactName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ClassName)
+    </td>
+
+</tr>
+}
+
+</table>

@@ -1,0 +1,47 @@
+﻿@model MarkManagementMVCApp.Models.ClassDemo
+
+@{
+    ViewBag.Title = "addclass";
+    Layout = "~/Views/Admin/AdminMaster.cshtml";
+}
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+
+        <div class="col-md-12" style="color:darkblue;margin-left:300px;">
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <br />
+                    <div class="row mb-12" style="margin-top:70px;color:darkblue;font-weight:bold">
+                        <div class="col-md-2">
+                            <b>CLASS NAME</b>
+
+                        </div>
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.ClassName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+                            <p style="color:red">@ViewBag.info</p>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input type="submit" value="ADD CLASS" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+
